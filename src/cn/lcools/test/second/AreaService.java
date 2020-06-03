@@ -1,6 +1,7 @@
 package cn.lcools.test.second;
 
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  程序开发中经常会用到通过ip查询属于哪个城市，先提供ip字典表，请实现通过ip查询城市名
@@ -14,12 +15,22 @@ import java.util.List;
  */
 
 public class AreaService {
-    public List<String> ipAreaList;//假设 areaList是ip字典一 行一行读取后的结果
+    //假设 areaList是ip字典一 行一行读取后的结果
+    public List<String> ipAreaList;
     public AreaService() {
     }
-    public String getAreaByIp(String ip) {
 
-        return "北京市";
+    public AreaService(List<String> ipAreaList) {
+        this.ipAreaList = ipAreaList;
+    }
+
+    public String getAreaByIp(String ip) {
+        TreeMap<IpNode, String> treeMap = new TreeMap<>();
+        for(String ipString : ipAreaList){
+            String[] content = ipString.split("-");
+            treeMap.put(new IpNode(content[0].split("\\."), content[1].split("\\.")), content[2]);
+        }
+        return treeMap.get(new IpNode(ip.split("\\."), ip.split("\\.")));
     }
 }
 
