@@ -1,7 +1,7 @@
 package cn.lcools.test.second;
 
 /**
- * Copyright: Copyright (c) 2020 - Asiainfo
+ * Copyright: Copyright (c) 2020 - liushuai3
  *
  * @ClassName: IpData
  * @Description: 存储区间IP的数据
