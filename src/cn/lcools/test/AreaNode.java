@@ -32,7 +32,7 @@ public class AreaNode {
 
     /**
      *
-     * 区域树结构添加数据
+     * 向树结构添加地域数据信息
      * */
     public AreaNode add(List<AreaResource> areas){
         AreaNode root = this;
