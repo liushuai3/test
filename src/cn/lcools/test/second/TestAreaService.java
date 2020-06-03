@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2020 - Asiainfo
+ * Copyright: Copyright (c) 2020 - liushuai3
  *
  * @ClassName: TestAreaService
- * @Description: 该类的功能描述
+ * @Description: 测试类
  * @version: v1.0.0
  * @author: liushuai3
  * @date: 2020/6/3 11:44

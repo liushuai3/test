@@ -7,7 +7,7 @@ import java.util.List;
  * Copyright: Copyright (c) 2020 - liushuai3
  *
  * @ClassName: TestProvinceService
- * @Description: 测试
+ * @Description: 测试类
  * @version: v1.0.0
  * @author: liushuai3
  * @date: 2020/6/3 9:43

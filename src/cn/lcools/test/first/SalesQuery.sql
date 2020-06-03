@@ -4,4 +4,4 @@ select a.shop, b.item, a.volume
     left join sales b on b.volume = a.volume and b.shop = a.shop;
 
 # 2.查询有产品平均销售>200商品的店的平均销售额
-select item, avg(volume) avgVolume from sales group by item having  avgVolume>200;
+select item, avg(volume) avgVolume from sales group by item having avgVolume>200;
