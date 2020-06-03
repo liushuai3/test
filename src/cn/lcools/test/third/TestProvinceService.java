@@ -23,7 +23,7 @@ public class TestProvinceService {
         ProvinceService sv = new ProvinceServiceImpl();
         List<AreaResource> areas = new ArrayList<>();
         AreaResource areaResource = new AreaResource();
-        areaResource.setArea("中国,四川,成都");
+        areaResource.setArea("中国,四川,成都,武侯区");
         areaResource.setSpliter(",");
         areaResource.setCount(10);
         AreaResource areaResource2 = new AreaResource();
@@ -34,9 +34,14 @@ public class TestProvinceService {
         areaResource3.setArea("中国,浙江,义乌");
         areaResource3.setSpliter(",");
         areaResource3.setCount(22);
+        AreaResource areaResource4 = new AreaResource();
+        areaResource4.setArea("中国,四川,成都,高新区");
+        areaResource4.setSpliter(",");
+        areaResource4.setCount(15);
         areas.add(areaResource);
         areas.add(areaResource2);
         areas.add(areaResource3);
+        areas.add(areaResource4);
         String jsonString = sv.getFormattedJSONByResource(areas);
         System.out.println(jsonString);
     }

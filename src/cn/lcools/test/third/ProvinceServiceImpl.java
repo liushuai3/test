@@ -1,5 +1,6 @@
 package cn.lcools.test.third;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ProvinceServiceImpl implements ProvinceService {
     @Override
     public String getFormattedJSONByResource(List<AreaResource> areas) {
         AreaNode root = new AreaNode(new HashMap(1), null);
-        root.add(areas);
+        root.add(Collections.synchronizedList(areas));
         return root.toString();
     }
 }

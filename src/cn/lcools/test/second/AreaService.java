@@ -1,5 +1,6 @@
 package cn.lcools.test.second;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -15,7 +16,9 @@ import java.util.TreeMap;
  */
 
 public class AreaService {
-    //假设 areaList是ip字典一 行一行读取后的结果
+    /**
+     * 假设 areaList是ip字典一 行一行读取后的结果
+     */
     public List<String> ipAreaList;
 
     public AreaService() {
@@ -26,12 +29,18 @@ public class AreaService {
     }
 
     public String getAreaByIp(String ip) {
-        TreeMap<IpNode, String> treeMap = new TreeMap<>();
-        for (String ipString : ipAreaList) {
+        // 新建一个TreeMap有序的。并将IP遍历放入TreeMap中。
+        TreeMap<IpData, String> treeMap = new TreeMap<>();
+        for (String ipString : Collections.synchronizedList(ipAreaList)) {
             String[] content = ipString.split("-");
-            treeMap.put(new IpNode(content[0].split("\\."), content[1].split("\\.")), content[2]);
+            String[] leftIpSplits = content[0].split("\\.");
+            String[] rightIpSplits = content[1].split("\\.");
+            String area = content[2];
+            treeMap.put(new IpData(leftIpSplits, rightIpSplits), area);
         }
-        return treeMap.get(new IpNode(ip.split("\\."), ip.split("\\.")));
+        String[] ipSplits = ip.split("\\.");
+        //从TreeMap中取出数据
+        return treeMap.get(new IpData(ipSplits));
     }
 }
 
