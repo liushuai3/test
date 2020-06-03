@@ -1,4 +1,4 @@
-package cn.lcools.test;
+package cn.lcools.test.third;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +27,8 @@ public class TestProvinceService {
         areaResource.setSpliter(",");
         areaResource.setCount(10);
         AreaResource areaResource2 = new AreaResource();
-        areaResource2.setArea("中国,浙江,杭州");
-        areaResource2.setSpliter(",");
+        areaResource2.setArea("中国-浙江-杭州");
+        areaResource2.setSpliter("-");
         areaResource2.setCount(25);
         AreaResource areaResource3 = new AreaResource();
         areaResource3.setArea("中国,浙江,义乌");

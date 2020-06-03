@@ -1,4 +1,4 @@
-package cn.lcools.test;
+package cn.lcools.test.third;
 
 class AreaResource {
     /**
