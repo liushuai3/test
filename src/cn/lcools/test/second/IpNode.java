@@ -35,15 +35,6 @@ public class IpNode implements Comparable<IpNode> {
         this.sum2 = transNum(sum2);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof IpNode) {
-            IpNode tmpNode = (IpNode) obj;
-            return tmpNode.sum1 == sum1 && tmpNode.sum2 == sum2;
-        }
-        return false;
-    }
-
     private long transNum(String[] nums) {
         long sum = 0;
         sum += Integer.valueOf(nums[0]);
