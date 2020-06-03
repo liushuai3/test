@@ -23,7 +23,8 @@ public class AreaNode {
     private Map<String, AreaNode> next;
     private Long value;
 
-    public AreaNode(){}
+    public AreaNode() {
+    }
 
     public AreaNode(Map<String, AreaNode> next, Long value) {
         this.next = next;
@@ -31,12 +32,11 @@ public class AreaNode {
     }
 
     /**
-     *
      * 向树结构添加地域数据信息
-     * */
-    public AreaNode add(List<AreaResource> areas){
+     */
+    public AreaNode add(List<AreaResource> areas) {
         AreaNode root = this;
-        for(AreaResource areaResource : areas) {
+        for (AreaResource areaResource : areas) {
             String area = areaResource.getArea();
             String splitString = areaResource.getSpliter();
             long count = areaResource.getCount();
@@ -45,12 +45,12 @@ public class AreaNode {
             for (int i = 0; i < areaSplits.length; i++) {
                 String areaKey = areaSplits[i];
                 AreaNode next = current.next.get(areaKey);
-                if(next==null){
-                    if(i==areaSplits.length-1){
-                        AreaNode node = new AreaNode(null,count);
+                if (next == null) {
+                    if (i == areaSplits.length - 1) {
+                        AreaNode node = new AreaNode(null, count);
                         current.next.put(areaKey, node);
-                    }else {
-                        current.next.put(areaKey, new AreaNode(new HashMap(30),null));
+                    } else {
+                        current.next.put(areaKey, new AreaNode(new HashMap(30), null));
                     }
                 }
                 current = current.next.get(areaKey);
@@ -60,31 +60,30 @@ public class AreaNode {
     }
 
     /**
-     *
      * 重写toString方法，遍历树结构拼接成json串。
-     * */
+     */
     @Override
     public String toString() {
-        if(next!=null){
+        if (next != null) {
             Iterator<Map.Entry<String, AreaNode>> i = next.entrySet().iterator();
             StringBuilder sb = new StringBuilder();
             sb.append('{');
-            for (;;) {
+            for (; ; ) {
                 Map.Entry<String, AreaNode> e = i.next();
                 String key = e.getKey();
                 AreaNode current = e.getValue();
                 sb.append('\"').append(key).append('\"');
                 sb.append(':');
-                if(current.next==null){
+                if (current.next == null) {
                     sb.append("[\"").append(current.value).append("\"]");
                 }
                 sb.append(current);
-                if (! i.hasNext()){
+                if (!i.hasNext()) {
                     return sb.append('}').toString();
                 }
                 sb.append(',');
             }
-        }else {
+        } else {
             return "";
         }
     }

@@ -26,7 +26,7 @@ public class TestAreaService {
         arrayList.add("115.218.207.0-115.218.248.13-浙江省杭州市");
         arrayList.add("47.153.128.0-47.153.191.255-北京市");
         AreaService areaService = new AreaService(arrayList);
-        String area = areaService.getAreaByIp("47.153.128.1");
+        String area = areaService.getAreaByIp("115.218.208.13");
         System.out.println(area);
     }
 }

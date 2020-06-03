@@ -20,11 +20,10 @@ public class IpNode implements Comparable<IpNode> {
 
     @Override
     public int compareTo(IpNode o) {
-        // 当ip的段在里面，就返回
-        if (sum1 <= o.sum1 && o.sum2 <= sum2) {
+        if (o.sum1 <= sum1 && sum2 <= o.sum2) {
             return 0;
         }
-        if (sum1 > o.sum2) {
+        if (o.sum1 > sum2) {
             return 1;
         }
         return -1;

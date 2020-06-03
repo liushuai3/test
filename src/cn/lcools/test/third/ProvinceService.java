@@ -9,6 +9,6 @@ import java.util.List;
 3.代码可读性好
 */
 public interface ProvinceService {
-    String getFormattedJSONByResource(List<AreaResource> areas) ;
+    String getFormattedJSONByResource(List<AreaResource> areas);
 }
 
